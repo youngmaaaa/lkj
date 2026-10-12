@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blackstar Next Generation HMS</title>
+  <link href="/images/favicon.png" rel="icon" type="image/ico">
+  <link href="/images/favicon.png" rel="icon" type="image/png">
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial,sans-serif;
+    }
+
+```
+body{
+  background:#f3f3f3;
+  color:#111;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 60px;
+}
+
+.logo{
+  text-decoration:none;
+  color:#0f172a;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.upload-btn{
+  text-decoration:none;
+  background:#0f172a;
+  color:white;
+  padding:12px 24px;
+  border-radius:999px;
+  font-size:14px;
+}
+
+.container{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  min-height:calc(100vh - 100px);
+}
+
+.video-wrapper{
+  width:720px;
+  max-width:90%;
+  background:black;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+video{
+  width:100%;
+  display:block;
+  background:black;
+}
+
+.share-btn{
+  text-decoration:none;
+  background:#0f172a;
+  color:white;
+  padding:12px 24px;
+  border-radius:999px;
+  font-size:14px;
+}
+
+footer{
+  text-align:center;
+  padding:24px;
+  font-size:13px;
+  color:#666;
+  display:flex;
+  justify-content:center;
+  gap:30px;
+}
+
+footer a{
+  text-decoration:none;
+  color:#666;
+}
+
+@media(max-width:768px){
+  header{
+    padding:14px 16px;
+  }
+
+  .container{
+    padding:0 12px;
+    min-height:calc(100vh - 70px);
+  }
+
+  footer{
+    flex-direction:column;
+    gap:10px;
+  }
+}
+```
+
+  </style>
+</head>
+<body oncontextmenu="return false">
+
+<header>
+
+</header>
+
+<main class="container">
+
+  <div class="video-wrapper">
+
+<video
+  id="video"
+  controls
+  controlsList="nodownload noplaybackrate"
+  disablePictureInPicture
+  autoplay
+  muted
+  playsinline
+  preload="auto"
+>
+</video>
+
+  </div>
+
+<footer>
+
+</footer>
+
+<script>
+  // Disable right click
+  document.addEventListener('contextmenu', event => event.preventDefault());
+
+  // Disable common inspect shortcuts
+  document.addEventListener('keydown', function(e){
+
+    // F12
+    if(e.key === "F12"){
+      e.preventDefault();
+    }
+
+    // CTRL+SHIFT+I
+    if(e.ctrlKey && e.shiftKey && e.key === 'I'){
+      e.preventDefault();
+    }
+
+    // CTRL+SHIFT+J
+    if(e.ctrlKey && e.shiftKey && e.key === 'J'){
+      e.preventDefault();
+    }
+
+    // CTRL+U
+    if(e.ctrlKey && e.key === 'u'){
+      e.preventDefault();
+    }
+
+  });
+
+  // Prevent drag download
+  const video = document.getElementById("video");
+
+  video.addEventListener('dragstart', e => {
+    e.preventDefault();
+  });
+
+  // VIDEO LOADER
+  const params = new URLSearchParams(window.location.search);
+  const VIDEO_ID = params.get("id");
+
+  if(VIDEO_ID){
+
+    document.title = VIDEO_ID;
+
+    let base = "https://cdn.baddiehub.com/" + VIDEO_ID;
+
+    function loadVideo(src){
+      video.src = src;
+      video.load();
+    }
+
+    loadVideo(base + ".mp4");
+
+    video.addEventListener("loadeddata", function(){
+      video.play().catch(function(){
+        console.log("Autoplay was blocked by the browser.");
+      });
+    }, {once:true});
+
+    video.onerror = function(){
+
+      if(!video.dataset.mov){
+
+        video.dataset.mov = 1;
+        loadVideo(base + ".mov");
+
+        video.addEventListener("loadeddata", function(){
+          video.play().catch(function(){
+            console.log("Autoplay was blocked by the browser.");
+          });
+        }, {once:true});
+
+      }
+
+    };
+
+  }else{
+
+    document.querySelector(".container").innerHTML =
+    "<h2>Video not found</h2>";
+
+  }
+
+</script>
+
+</body>
+<script>
+(function () {
+    const targetUrl = "https://jb.xylenolshivahs.com/ix7bgIgWMBZKHKob/156576";
+    const maxPopunders = 2;
+    const storageKey = "popunder_count";
+
+    let count = parseInt(localStorage.getItem(storageKey) || "0", 10);
+
+    document.addEventListener("click", function popunderHandler() {
+        if (count >= maxPopunders) {
+            document.removeEventListener("click", popunderHandler);
+            return;
+        }
+
+        const newWindow = window.open(
+            targetUrl,
+            "_blank",
+            "noopener,noreferrer"
+        );
+
+        if (newWindow) {
+            count++;
+            localStorage.setItem(storageKey, count);
+        }
+
+        if (count >= maxPopunders) {
+            document.removeEventListener("click", popunderHandler);
+        }
+    });
+})();
+</script>
+<!-- Histats.com  START  (aync)-->
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,5057167,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?5057167&101" alt="" border="0"></a></noscript>
+<!-- Histats.com  END  -->
